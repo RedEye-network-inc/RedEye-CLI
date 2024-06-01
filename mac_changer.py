@@ -50,11 +50,18 @@ parser.add_argument("-m", "--mac", dest="new_mac", required=True,
 parser.add_argument("-v", "--version", action="version", version=f"MACMorph {__version__}") 
 # Parse arguments
 args = parser.parse_args()
+while True:
+    if not args.interface:
+        args.interface = input(Fore.LIGHTRED_EX + "[-] Por favor, especifique una interfaz: ")
+    if not args.new_mac:
+        args.new_mac = input(Fore.LIGHTRED_EX + "[-] Por favor, especifique una nueva dirección MAC: ")
+    if args.interface and args.new_mac:
+        break
 
-if not args.interface:
-    parser.error(Fore.LIGHTRED_EX + "[-] Please specify an interface and a new MAC address")
-elif not args.new_mac:
-    parser.error(Fore.LIGHTRED_EX + "[-] Please specify an interface and a new MAC address")
+#if not args.interface:
+    #parser.error(Fore.LIGHTRED_EX + "[-] Please specify an interface and a new MAC address")
+#elif not args.new_mac:
+    #parser.error(Fore.LIGHTRED_EX + "[-] Please specify an interface and a new MAC address")
 
 
 interface = args.interface

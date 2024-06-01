@@ -13,6 +13,8 @@ setup(
     install_requires=[
         'colorama',
         'argparse',
+        'scapy',
+        
         # Agrega aquí otras dependencias
     ]
     
